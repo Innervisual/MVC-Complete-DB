@@ -1,0 +1,34 @@
+﻿@model IEnumerable<MVC_Data.Models.Language>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Languages";
+}
+
+<h1>Languages</h1>
+
+<p>
+    <a asp-action="Create">Create Language</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            
+            <td>
+                <a asp-action="Remove" asp-route-name="@item.Name">Remove</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
